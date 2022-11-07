@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: biodieselapidev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: biodieselapidev
+  template:
+    metadata:
+      labels:
+        app: biodieselapidev 
+    spec:
+      containers:
+        - name: biodieselapidev
+          image: biosistemico.azurecr.io/biodieselapidev
+          ports:
+          - containerPort: 4000

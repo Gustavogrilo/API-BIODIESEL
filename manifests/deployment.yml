@@ -1,0 +1,22 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: biodieselapi 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: biodieselapi
+  template:
+    metadata:
+      labels:
+        app: biodieselapi 
+    spec:
+      containers:
+        - name: biodieselapi 
+          image: biosistemico.azurecr.io/biodieselapi
+          ports:
+          - containerPort: 4000
+          resources:
+            requests:
+              memory: 1G
